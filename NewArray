@@ -1,0 +1,54 @@
+/* package whatever; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Ideone
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		int[] A = new int[5];
+		int[] B = new int[A.length];
+		for (int s = 0; s < A.length; s++) {
+			A[s] = (int) (Math.random()*20-10);
+			System.out.print(A[s] + " ");
+		}
+		System.out.println();
+		int min = A[0];
+		for (int v = 0; v < A.length - 1; v++) {
+			for (int s = 0; s < A.length - 1; s++) {
+				if (A[s] < A [s+1]) {
+					min = A [s];
+					A[s] = A [s+1];
+					A [s+1] = min;
+				}
+			}
+		}
+		System.out.println("New Array is: ");
+		for (int s = 0; s < A.length; s++) {
+			System.out.print(A[s] + " ");
+		}
+		System.out.println();
+		int count = 0;
+		for (int s = 0; s < B.length; s++) {
+			if (A[s] %2 == 0) {
+				for (int k = 0; k < A.length; k ++) {
+					if (A[k] %2 == 0) {
+						count++;
+					}
+				}
+					} else {
+						for (int k = 0; k < A.length; k ++) {
+							if (A[k] %2 != 0) {
+								count++;
+											}
+										}
+									}
+			B[s] = count - 1;
+			count = 0;
+			System.out.print(B[s] + " ");
+		}
+	}
+}
